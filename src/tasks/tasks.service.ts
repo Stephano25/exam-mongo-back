@@ -10,9 +10,10 @@ import { UpdateTaskDto } from './dto/update-task.dto';
 export class TasksService {
     constructor(@InjectModel(Task.name) private taskModel: Model<TaskDocument>) {}
 
-    create(dto: CreateTaskDto) {
-        return this.taskModel.create(dto);
+    async create(dto) {
+        return await this.taskModel.create(dto);
     }
+
 
     findAll(status?: string, sort?: string) {
     const filter = status ? { status } : {};
