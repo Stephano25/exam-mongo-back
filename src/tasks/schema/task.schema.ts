@@ -1,9 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-
 export type TaskDocument = Task & Document;
-
 
 @Schema({ timestamps: true })
 export class Task {
@@ -14,10 +12,8 @@ title: string;
 @Prop()
 description: string;
 
-
 @Prop({ default: 'EN_COURS' })
-status: 'EN_COURS' | 'TERMINEE';
+    status: 'EN_COURS' | 'TERMINEE';
 }
-
 
 export const TaskSchema = SchemaFactory.createForClass(Task);
